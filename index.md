@@ -3,25 +3,25 @@ layout: lesson
 root: .  # Is the only page that doesn't follow the pattern /:path/index.html
 permalink: index.html  # Is the only page that doesn't follow the pattern /:path/index.html
 ---
-Physics analyses in the field of particle physics often involve processing large amounts of data, typically spanning several terabytes. Within the CMS collaboration, these analyses have been performed using high-throughput batch systems like HTCondor, which is installed at CERN and various research institutions. Additionally, the worldwide LHC computing grid (WLCG) has been instrumental in providing distributed computing resources for such analyses. However, open data users may not have access to these resources at their own institutions. To overcome this limitation, the CMS OpenData workshop in 2023 aims to enable researchers to utilize computing resources through public cloud vendors.
+This lesson provides a step-by-step guide on how to create a virtual machine (VM) on Microsoft Azure and leverage containerization capabilities. You will install essential container images, such as CMS software (CMSSW), ROOT, and Python tools, and utilize a graphical user interface through Virtual Network Computing (VNC) for easy data interaction and visualization.
 
 > ## What is this lesson about?
 >
 > Welcome.  In this lesson you will:
-> - Learn what Kubernetes is.
-> - Understand the basic way on how Kubernetes (often abbreviated as K8s) and a workflow orchestration tool such as Argo operate.
-> - Learn how to create a K8s cluster prepared for physics analysis.
-> - Learn to configure and run a simple Argo workflow.
+> - Learn how to create a VM on Microsoft Azure using Azure for Students
+> - Install essential container images such as CMS software (CMSSW), ROOT, and Python tools on the VM, enabling efficient data analysis and exploration.
+> - Utilize the Virtual Network Computing (VNC) interface to access the graphical user interface of containerized applications directly in a browser window, facilitating data interaction and visualization.
 {: .objectives}
 
 > ## Prerequisites
 > In order to complete this lesson you need
-> - A basic understanding of [UNIX shells](https://swcarpentry.github.io/shell-novice/) (external link).
-> - A basic understanding of containers (after completing the [Docker](https://cms-opendata-workshop.github.io/workshop2023-lesson-docker/) lesson).
+> - Azure for Students Account
+> - Basic Knowledge of Azure and Virtual Machines
+> - SSH Client
 {: .prereq}
 
 > ## Helpline
-> Remember that we are always available to help. Our [Mattermost](https://mattermost.web.cern.ch/cmsodws2023/channels/cloud-pre-exercise) channel is open.
+> Remember that we are always available to help. Our Mattermost DPOA channel is open.
 {: .callout}
 
 {% include links.md %}
