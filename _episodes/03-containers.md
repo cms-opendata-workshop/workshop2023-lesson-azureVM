@@ -66,7 +66,7 @@ To install Docker on your Ubuntu system, you can follow the steps outlined below
     $ sudo docker run hello-world
     ```
 
-### CMS Open Data Software Installation
+## CMS Open Data Software Installation
 
 To install CMS software (CMSSW, ROOT, Python tools) for open data analysis, you can follow the steps outlined below. You can also refer to the [Lesson Docker Workshop 2022](https://cms-opendata-workshop.github.io/workshop2022-lesson-docker/03-docker-for-cms-opendata/index.html) for a detailed guide.
 
@@ -106,7 +106,6 @@ Please note that the commands provided above are a summary of the installation p
 
 
 ### ROOT 
-
 
 To install ROOT and start a container for using it, you can follow the steps outlined below.
 
@@ -190,7 +189,7 @@ With these commands, you can easily return to the same container and continue yo
 Note: Make sure that the containers are not already running before using the docker start command.
 
 
-### Deleting Docker Containers
+## Deleting Docker Containers
 
 To delete the Docker containers and associated data, you can use the following commands:
 
