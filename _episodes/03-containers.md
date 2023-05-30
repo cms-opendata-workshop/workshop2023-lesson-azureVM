@@ -1,19 +1,18 @@
 ---
-title: "Getting started with Argo"
+title: "Installation of Containers"
 teaching: 10
 exercises: 0
 questions:
-- "What is Argo?"
-- "How to use Argo commands?"
-- "What are Argo workflows?"
-- "How do I deploy my Argo GUI?"
+- "What is the purpose of installing Docker in the Azure VM?"
+- "How can you access the graphical user interface of the CMSSW container?"
+- "What is the recommended method for validating the successful installation of CMSSW, ROOT, and Python containers?"
 
 objectives:
-- "Appreciate the necessity for the Argo workflows tool (or similar)"
-- "Learn the basics of Argo commands"
+- "Installation process of Docker on your Ubuntu VM created on Azure"
+- "Perform a validation test to ensure that the installation of CMSSW, ROOT, and Python containers is successful."
 
 keypoints:
-- "Argo is a very useful tool for running workflows and parallel jobs"
+- "Installing Docker and the necessary containers (CMSSW, ROOT, Python) enables you to easily set up and utilize a containerized environment for efficient data analysis and exploration in the Azure VM."
 ---
 
 ## Installation of Containers
