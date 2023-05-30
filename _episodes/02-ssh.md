@@ -41,6 +41,7 @@ ssh -i ubuntu_key.pem -L 5901:localhost:5901 -L 6080:localhost:6080 -L 8888:loca
 3. Then, choose `Import key` to locate and select the `.pem` file you downloaded previously from Azure. 
 
 > Note: Do not select `Generate`.
+{: .testimonial}
 
 4. Go to the `File` menu, select `Save private key`, and confirm by clicking `Yes` in the pop-up window.
 
@@ -65,6 +66,7 @@ ssh -i ubuntu_key.pem -L 5901:localhost:5901 -L 6080:localhost:6080 -L 8888:loca
 
 
 > Note: Tunnels will be required later. They will allow you to easily connect to VNC or Jupyter when the corresponding container is launched.
+{: .testimonial}
 
 4. After defining the above tunnels, save the SSH connection settings and establish the connection by clicking the `Open` button. In the pop-up window, select `Accept` and enter the VM credentials (by default, `azureuser`).
 
