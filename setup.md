@@ -2,27 +2,33 @@
 title: Setup
 ---
 ## Welcome!
-The workshop will introduce participants to Kubernetes, an open-source container orchestration platform. Kubernetes provides a scalable and efficient infrastructure for running applications in the cloud. It allows users to manage and automate the deployment, scaling, and monitoring of containerized applications. In the context of the CMS OpenData workshop, Kubernetes will be used to create an environment on [Google Cloud Platform](https://cloud.google.com), enabling participants to run realistic physics analyses in the cloud.
+This repository contains a hands-on exercise that guides you through the process of creating a virtual machine (VM) on Microsoft Azure and leveraging the power of containerization. By following this exercise, you will learn how to install essential container images and access them through a graphical user interface using Virtual Network Computing (VNC).
 
-## Setup
-In this pre-exercise, we will guide you through setting up a K8s cluster on your local computer in order to learn and test workflows. This will give participants a broad understanding of the functionality of Argo workflows, thus preparing them to run realistic physics analysis using Google Cloud Platform (GCP) in the workshop itself. Here are the steps to get started:
 
-### 1. GCP (Google Cloud Platform):
-To participate in this workshop, you will need a [GCP](https://cloud.google.com) account (you can use your existing google account to access this). Activating a GCP account allows you to access $300.00 USD in credit, which can be used within a period of 3 months. Please note that a credit or debit card is required during the account creation process. 
-<br/>
+### In this exercise, you will:
 
-> However, it's important to mention that for the Cloud Computing lesson, we will provide temporary resources, so activating your own GCP account credit is not entirely necessary. If you do wish to activate your credits, we recommend you do so after the workshop.
-{: .testimonial}
+Learn how to create a VM on Microsoft Azure using Azure for Students, which provides free access to the cloud and initial credits.
+Install three essential container images on the VM: CMS software (CMSSW), ROOT, and Python tools.
+Utilize the VNC interface to seamlessly access the graphical interface of the containerized applications in a browser window, facilitating data analysis and visualization.
+Prerequisites
 
-### 2. Minikube:
-For this Cloud Pre-exercise, you will need to create a Kubernetes cluster locally to run some tests. Minikube is a lightweight Kubernetes implementation that creates a VM on your local machine and deploys a simple cluster containing only one node. Minikube is available for Linux, macOS, and Windows systems. Please click [here](https://minikube.sigs.k8s.io/docs/start/) to get started with the minikube installation. 
+### Before you begin, ensure that you have:
 
->  To enable Kubernetes on WSL2, you have two options: activating Kubernetes in Docker Desktop or following the Linux option on WSL2 Ubuntu. It's important to note that the Windows instructions guide users to PowerShell, but running the CMSSW container there will cause issues. Therefore, it is necessary to execute those commands within the Ubuntu shell.
-{: .testimonial}
+1. An Azure for Students account. You can sign up for an account on the Azure Portal using your academic email.
+2. Basic knowledge of Microsoft Azure and virtual machines.
+3. An SSH client installed on your machine for connecting to the VM.
 
-### 3. Mattermost Cloud Pre-Exercises Channel:
-Don't forget to subscribe to the [Mattermost cloud pre-exercises channel](https://mattermost.web.cern.ch/cmsodws2023/channels/cloud-pre-exercise). This channel will provide you with important updates, announcements, and any additional resources or support you may need throughout the workshop. It's a valuable communication platform to stay connected with instructors and fellow participants.
+## Resources
 
-We wish you good luck with the workshop! Feel free to reach out if you have any questions or need assistance along the way. Enjoy the learning experience!
+Additional resources and references:
 
-{% include links.md %}
+- [Azure Portal](https://portal.azure.com/#home): The official Microsoft Azure portal for managing your Azure resources.
+- [Azure for Students](https://azure.microsoft.com/en-us/free/students/): Information about Azure for Students offering, including free access to Azure cloud resources.
+- [CMSSW](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookCMSSWFramework): CMS Software Environment - a framework for particle physics simulation and analysis.
+- [ROOT](https://root.cern): An object-oriented data analysis framework used in high-energy physics.
+- [VNC](https://www.realvnc.com/en/): Virtual Network Computing - a graphical desktop sharing system that allows you to access the graphical interface of a remote computer.
+
+
+Acknowledgments
+
+Special thanks to Microsoft Azure for providing the Azure for Students offering and supporting student learning and exploration in the cloud computing domain.
