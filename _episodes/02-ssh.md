@@ -1,14 +1,13 @@
 ---
-title: "Getting started with Kubectl"
+title: "Accessing the VM with SSH"
 teaching: 10
 exercises: 0
 questions:
-- "What is Kubectl?"
-- "How to use Kubectl commands?"
+- "How do I connect to my Azure VM?"
 
 objectives:
-- "Learn what the kubectl command can do"
-- "Learn how to set up different services/resources to get the most of your cluster"
+- "Establish an SSH connection to the Azure VM using PuTTY."
+- "Configure PuTTY to establish tunnels for VNC, WebVNC, and Jupyter connections"
 
 keypoints:
 - "`kubectl` is the ruler of GKE"
