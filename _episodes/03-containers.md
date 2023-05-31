@@ -149,7 +149,7 @@ To install ROOT and start a container for using it, you can follow the steps out
     gitlab-registry.cern.ch/cms-cloud/python-vnc:latest
     ```
 
-This will download and install the necessary container for Python tools.
+    This will download and install the necessary container for Python tools.
 
 2. To start Jupyter (notebook server) inside the container, run the following command:
 
