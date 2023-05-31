@@ -187,36 +187,4 @@ With these commands, you can easily return to the same container and continue yo
 
 Note: Make sure that the containers are not already running before using the docker start command.
 
-
-## Deleting Docker Containers
-
-To delete the Docker containers and associated data, you can use the following commands:
-
-##### CMSSW
-```
-sudo docker rm my_od
-sudo rm -rf cms_open_data_work
-```
-##### ROOT
-```
-sudo docker rm my_root
-sudo rm -rf cms_open_data_root
-```
-##### PYTHON
-```
-sudo docker rm my_python
-sudo rm -rf cms_open_data_python
-```
-
-Running these commands will remove the respective docker containers from your system. Additionally, it will delete the corresponding directories (cms_open_data_work, cms_open_data_root, cms_open_data_python) containing the data associated with each container.
-
-Please note that deleting the containers will permanently remove the data stored inside them. Make sure to back up any important data before executing these commands.
-
-## Validation Test
-To validate the installation and ensure that everything is working fine, you can perform a validation test. Follow the steps of this [test page](https://cms-opendata-workshop.github.io/workshop2022-lesson-docker/04-validation/index.html).
-
-  > Note: This page provides instructions on how to test the functionality of CMSSW, ROOT, and Python within the docker containers.
-
-   
-
 {% include links.md %}
