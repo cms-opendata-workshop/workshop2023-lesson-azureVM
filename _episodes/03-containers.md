@@ -1,5 +1,5 @@
 ---
-title: "Installation of Containers"
+title: "Containers"
 teaching: 10
 exercises: 0
 questions:
