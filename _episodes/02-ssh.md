@@ -7,11 +7,8 @@ questions:
 
 objectives:
 - "Establish an SSH connection to the Azure VM using PuTTY."
-- "Configure PuTTY to establish tunnels for VNC, WebVNC, and Jupyter connections"
+- "Configure PuTTY to establish tunnels for VNC, and Jupyter connections"
 
-keypoints:
-- "`kubectl` is the ruler of GKE"
----
 
 ## Accessing the VM with SSH
 
