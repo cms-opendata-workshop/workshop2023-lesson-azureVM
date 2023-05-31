@@ -9,6 +9,9 @@ objectives:
 - "Delete containers created created on Azure"
 - "Perform a validation test to ensure that the installation of CMSSW, ROOT, and Python containers is successful."
 
+keypoints:
+- "Containers will permanently remove the data stored inside them. Therefore, it is recommended to back up any important data before executing these commands."
+---
 ## Deleting Docker Containers
 
 To delete the Docker containers and associated data, you can use the following commands:
