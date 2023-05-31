@@ -9,6 +9,9 @@ objectives:
 - "Establish an SSH connection to the Azure VM using PuTTY."
 - "Configure PuTTY to establish tunnels for VNC, and Jupyter connections"
 
+keypoints:
+- "Once connected, you will have command-line access to the VM, allowing you to execute commands and perform administrative tasks remotely."
+---
 
 ## Accessing the VM with SSH
 
