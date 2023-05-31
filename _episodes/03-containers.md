@@ -158,14 +158,14 @@ jupyter-lab --ip=0.0.0.0 --no-browser
 > When you start a notebook server with token authentication enabled (default), a token is generated for authentication. 
 > The token information is logged to the terminal, allowing you to copy and paste the URL into your web browser. 
 > Here is an example of the logged token:
-> The Jupyter Notebook is running at: http://localhost:8888/?token=c8de56fa4deed24899803e93c227592aef6538f93025fe01
-
+> The Jupyter Notebook is running at: [http://localhost:8888](http://localhost:8888/?token=c8de56fa4deed24899803e93c227592aef6538f93025fe01)
 > Jupyter can be accessed in your web browser by navigating to that link.
+{: .testimonial}
 
 3. To exit the container, run the following command:
 
-```
-> exit
+```bash
+exit
 ```
 ### Returning to the Same Container
 
@@ -186,5 +186,13 @@ Remember to use the appropriate container name (my_od, my_root, or my_python) ba
 With these commands, you can easily return to the same container and continue your work without any loss of progress or data.
 
 Note: Make sure that the containers are not already running before using the docker start command.
+
+## Validation Test
+To validate the installation and ensure that everything is working fine, you can perform a validation test. Follow the steps of this [test page](https://cms-opendata-workshop.github.io/workshop2022-lesson-docker/04-validation/index.html).
+
+> Note: This page provides instructions on how to test the functionality of CMSSW, ROOT, and Python within the docker containers.
+{: .testimonial}
+
+  
 
 {% include links.md %}
