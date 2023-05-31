@@ -1,7 +1,7 @@
 ---
 title: "Containers"
 teaching: 10
-exercises: 0
+exercises: 10
 questions:
 - "What is the purpose of installing Docker in the Azure VM?"
 - "How can you access the graphical user interface of the CMSSW container?"
@@ -27,18 +27,18 @@ To install Docker on your Ubuntu system, you can follow the steps outlined below
 
 1. Update the apt package index and install packages to allow apt to use a repository over HTTPS:
 
-```
-sudo apt-get update
-sudo apt-get install ca-certificates curl gnupg -y
-```
+    ```
+    sudo apt-get update
+    sudo apt-get install ca-certificates curl gnupg -y
+    ```
 
 2. Add Docker’s official GPG key:
 
-```bash
-sudo install -m 0755 -d /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-sudo chmod a+r /etc/apt/keyrings/docker.gpg
-```
+    ```bash
+    sudo install -m 0755 -d /etc/apt/keyrings
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+    sudo chmod a+r /etc/apt/keyrings/docker.gpg
+    ```
 
 3. Use the following command to set up the repository:
 
@@ -74,36 +74,39 @@ To install CMS software (CMSSW, ROOT, Python tools) for open data analysis, you 
 
 1. Download the docker image for CMSSW open data and start a container:
 
-```bash
-cd
-sudo mkdir cms_open_data_work
-sudo docker run -it --name my_od -P -p 5901:5901 -p 6080:6080 -v \
-${HOME}/cms_open_data_work:/code cmsopendata/cmssw_7_6_7-slc6_amd64_gcc493 \
-/bin/bash
-```
+    ```bash
+    cd
+    sudo mkdir cms_open_data_work
+    sudo docker run -it --name my_od -P -p 5901:5901 -p 6080:6080 -v \
+    ${HOME}/cms_open_data_work:/code cmsopendata/cmssw_7_6_7-slc6_amd64_gcc493 \
+    /bin/bash
+    ```
+    
 2. Once you are inside the container, you can start the VNC service to access the graphical user interface. Run the following command to start VNC:
 
-```bash
-start_vnc
-```
+    ```bash
+    start_vnc
+    ```
 
-> After starting VNC, you can access the VNC service in two ways:
-> 
-> 1. VNC Client: Use a VNC client and connect to localhost:1 to access the graphical interface.
-> 
-> 2. Web Browser: Access the VNC service in your web browser by navigating to http://localhost:6080/.
+    > After starting VNC, you can access the VNC service in two ways:
+    > 
+    > 1. VNC Client: Use a VNC client and connect to localhost:1 to access the graphical interface.
+    > 
+    > 2. Web Browser: Access the VNC service in your web browser by navigating to http://localhost:6080/.
+    {: .testimonial}
 
 3. To stop the VNC service and exit the container, run :
 
-```
-stop_vnc
-exit
-```
+    ```
+    stop_vnc
+    exit
+    ```
 
 With CMSSW installed and the container running, you can now proceed with analyzing the open data from CERN using the CMSSW software.
 
-Please note that the commands provided above are a summary of the installation process. For more detailed instructions and additional configurations, refer to the official documentation.
-
+> Please note that the commands provided above are a summary of the installation process. 
+> For more detailed instructions and additional configurations, refer to the official documentation.
+{: .testimonial}
 
 ### ROOT 
 
@@ -111,63 +114,67 @@ To install ROOT and start a container for using it, you can follow the steps out
 
 1. Download the docker images for ROOT and start the container:
 
-```bash
-cd
-sudo mkdir cms_open_data_root
-sudo docker run -it --name my_root --net=host --env="DISPLAY" \
--v $HOME/.Xauthority:/home/cmsusr/.Xauthority:rw \
--v ${HOME}/cms_open_data_root:/code \
-gitlab-registry.cern.ch/cms-cloud/root-vnc:latest
-```
+    ```bash
+    cd
+    sudo mkdir cms_open_data_root
+    sudo docker run -it --name my_root --net=host --env="DISPLAY" \
+    -v $HOME/.Xauthority:/home/cmsusr/.Xauthority:rw \
+    -v ${HOME}/cms_open_data_root:/code \
+    gitlab-registry.cern.ch/cms-cloud/root-vnc:latest
+    ```
 
 2. To start VNC inside the container:
-```bash
-start_vnc
-```
-> VNC service can be accessed via a VNC client via the localhost:1 destination or by accessing the http://localhost:6080/ on your WebBrowser.
+
+    ```bash
+    start_vnc
+    ```
+    
+    > VNC service can be accessed via a VNC client via the localhost:1 destination or by accessing the http://localhost:6080/ on your WebBrowser.
+    {: .testimonial}
 
 3. To stop VNC and exit:
 
-```bash
-stop_vnc
-exit
-```
+    ```bash
+    stop_vnc
+    exit
+    ```
 
 ### Python Tools 
 
 To install ROOT and start a container for using it, you can follow the steps outlined below.
 
 1. Download and install Python tools container:
-```bash 
-cd
-sudo mkdir cms_open_data_python
-sudo docker run -it --name my_python -P -p 8888:8888 --net=host \
---env="DISPLAY" -v $HOME/.Xauthority:/home/cmsusr/.Xauthority:rw \
--v ${HOME}/cms_open_data_python:/code \
-gitlab-registry.cern.ch/cms-cloud/python-vnc:latest
-```
+    ```bash 
+    cd
+    sudo mkdir cms_open_data_python
+    sudo docker run -it --name my_python -P -p 8888:8888 --net=host \
+    --env="DISPLAY" -v $HOME/.Xauthority:/home/cmsusr/.Xauthority:rw \
+    -v ${HOME}/cms_open_data_python:/code \
+    gitlab-registry.cern.ch/cms-cloud/python-vnc:latest
+    ```
 
 This will download and install the necessary container for Python tools.
 
 2. To start Jupyter (notebook server) inside the container, run the following command:
 
-```bash
-jupyter-lab --ip=0.0.0.0 --no-browser
-```
+    ```bash
+    jupyter-lab --ip=0.0.0.0 --no-browser
+    ```
 
-> When you start a notebook server with token authentication enabled (default), a token is generated for authentication. 
-> The token information is logged to the terminal, allowing you to copy and paste the URL into your web browser. 
-> Here is an example of the logged token:
-> The Jupyter Notebook is running at: [http://localhost:8888](http://localhost:8888/?token=c8de56fa4deed24899803e93c227592aef6538f93025fe01)
-> Jupyter can be accessed in your web browser by navigating to that link.
-{: .testimonial}
+    > When you start a notebook server with token authentication enabled (default), a token is generated for authentication. 
+    > The token information is logged to the terminal, allowing you to copy and paste the URL into your web browser. 
+    > Here is an example of the logged token:
+    > The Jupyter Notebook is running at: [http://localhost:8888](http://localhost:8888/?token=c8de56fa4deed24899803e93c227592aef6538f93025fe01)
+    > Jupyter can be accessed in your web browser by navigating to that link.
+    {: .testimonial}
 
 3. To exit the container, run the following command:
 
-```bash
-exit
-```
-### Returning to the Same Container
+    ```bash
+    exit
+    ```
+    
+## Returning to the Same Container
 
 If you need to return to a previously used container, you can do so using the docker start command. 
 
@@ -185,14 +192,14 @@ Remember to use the appropriate container name (my_od, my_root, or my_python) ba
 
 With these commands, you can easily return to the same container and continue your work without any loss of progress or data.
 
-Note: Make sure that the containers are not already running before using the docker start command.
+> Note: Make sure that the containers are not already running before using the docker start command.
+{: .testimonial}
 
 ## Validation Test
 To validate the installation and ensure that everything is working fine, you can perform a validation test. Follow the steps of this [test page](https://cms-opendata-workshop.github.io/workshop2022-lesson-docker/04-validation/index.html).
 
 > Note: This page provides instructions on how to test the functionality of CMSSW, ROOT, and Python within the docker containers.
 {: .testimonial}
-
   
 
 {% include links.md %}
