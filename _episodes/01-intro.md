@@ -1,7 +1,7 @@
 ---
 title: "Introduction"
 teaching: 10
-exercises: 0
+exercises: 5
 questions:
 - "How to create a VM over Microsoft Azure?"
 - "How to install docker with the CMS open data software in a single virtual machine?"
@@ -59,4 +59,4 @@ A pop-up message will appear, prompting you to generate a new key pair. Select t
 
 Please note that the deployment process may take some time. Once the deployment is complete, navigate to the resource. You will find information about your VM, including the public IP address. Make sure that your VM is in the **Started** state, and the `Start` option at the bottom left side of the page should be disabled.
 
-> Congratulations! You have successfully created your VM.
+##### Congratulations! You have successfully created your VM.
