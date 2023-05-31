@@ -27,43 +27,43 @@ To install Docker on your Ubuntu system, you can follow the steps outlined below
 
 1. Update the apt package index and install packages to allow apt to use a repository over HTTPS:
 
-    ```
-    $ sudo apt-get update
-    $ sudo apt-get install ca-certificates curl gnupg -y
-    ```
+```
+sudo apt-get update
+sudo apt-get install ca-certificates curl gnupg -y
+```
 
 2. Add Docker’s official GPG key:
 
-    ```
-    $ sudo install -m 0755 -d /etc/apt/keyrings
-    $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-    $ sudo chmod a+r /etc/apt/keyrings/docker.gpg
-    ```
+```bash
+sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+```
 
 3. Use the following command to set up the repository:
 
-    ```
-    $ echo "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] \
+    ```bash
+    echo "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] \
     https://download.docker.com/linux/ubuntu "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
     sudo tee /etc/apt/sources.list.d/docker.list
     ```
 
 4. Update the apt package index:
 
-    ```
-    $ sudo apt-get update
+    ```bash
+    sudo apt-get update
     ```
 
 5. Install Docker Engine, containerd, and Docker Compose. To install the latest version, run:
 
-    ```
-    $ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+    ```bash
+    sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
     ```
 
 6. Verify that the Docker Engine installation is successful by running the hello-world image:
 
-    ```
-    $ sudo docker run hello-world
+    ```bash
+    sudo docker run hello-world
     ```
 
 ## CMS Open Data Software Installation
@@ -74,17 +74,17 @@ To install CMS software (CMSSW, ROOT, Python tools) for open data analysis, you 
 
 1. Download the docker image for CMSSW open data and start a container:
 
-```
-$ cd
-$ sudo mkdir cms_open_data_work
-$ sudo docker run -it --name my_od -P -p 5901:5901 -p 6080:6080 -v \
+```bash
+cd
+sudo mkdir cms_open_data_work
+sudo docker run -it --name my_od -P -p 5901:5901 -p 6080:6080 -v \
 ${HOME}/cms_open_data_work:/code cmsopendata/cmssw_7_6_7-slc6_amd64_gcc493 \
 /bin/bash
 ```
 2. Once you are inside the container, you can start the VNC service to access the graphical user interface. Run the following command to start VNC:
 
-```
-> start_vnc
+```bash
+start_vnc
 ```
 
 > After starting VNC, you can access the VNC service in two ways:
@@ -96,8 +96,8 @@ ${HOME}/cms_open_data_work:/code cmsopendata/cmssw_7_6_7-slc6_amd64_gcc493 \
 3. To stop the VNC service and exit the container, run :
 
 ```
-> stop_vnc
-> exit
+stop_vnc
+exit
 ```
 
 With CMSSW installed and the container running, you can now proceed with analyzing the open data from CERN using the CMSSW software.
@@ -111,26 +111,26 @@ To install ROOT and start a container for using it, you can follow the steps out
 
 1. Download the docker images for ROOT and start the container:
 
-```
-$ cd
-$ sudo mkdir cms_open_data_root
-
-$ sudo docker run -it --name my_root --net=host --env="DISPLAY" \
+```bash
+cd
+sudo mkdir cms_open_data_root
+sudo docker run -it --name my_root --net=host --env="DISPLAY" \
 -v $HOME/.Xauthority:/home/cmsusr/.Xauthority:rw \
 -v ${HOME}/cms_open_data_root:/code \
 gitlab-registry.cern.ch/cms-cloud/root-vnc:latest
 ```
+
 2. To start VNC inside the container:
-```
-> start_vnc
+```bash
+start_vnc
 ```
 > VNC service can be accessed via a VNC client via the localhost:1 destination or by accessing the http://localhost:6080/ on your WebBrowser.
 
 3. To stop VNC and exit:
 
-```
-> stop_vnc
-> exit
+```bash
+stop_vnc
+exit
 ```
 
 ### Python Tools 
@@ -138,11 +138,10 @@ gitlab-registry.cern.ch/cms-cloud/root-vnc:latest
 To install ROOT and start a container for using it, you can follow the steps outlined below.
 
 1. Download and install Python tools container:
-```
-$ cd
-$ sudo mkdir cms_open_data_python
-
-$ sudo docker run -it --name my_python -P -p 8888:8888 --net=host \
+```bash 
+cd
+sudo mkdir cms_open_data_python
+sudo docker run -it --name my_python -P -p 8888:8888 --net=host \
 --env="DISPLAY" -v $HOME/.Xauthority:/home/cmsusr/.Xauthority:rw \
 -v ${HOME}/cms_open_data_python:/code \
 gitlab-registry.cern.ch/cms-cloud/python-vnc:latest
@@ -152,8 +151,8 @@ This will download and install the necessary container for Python tools.
 
 2. To start Jupyter (notebook server) inside the container, run the following command:
 
-```
-> jupyter-lab --ip=0.0.0.0 --no-browser
+```bash
+jupyter-lab --ip=0.0.0.0 --no-browser
 ```
 
 > When you start a notebook server with token authentication enabled (default), a token is generated for authentication. 
@@ -174,10 +173,10 @@ If you need to return to a previously used container, you can do so using the do
 
 Here are the commands to start the respective containers:
 
-```
-$ sudo docker start -i my_od
-$ sudo docker start -i my_root
-$ sudo docker start -i my_python
+```bash
+sudo docker start -i my_od
+sudo docker start -i my_root
+sudo docker start -i my_python
 ```
 
 By running these commands, you can resume your work in the desired container. The -i flag ensures that you can interact with the container's terminal.
@@ -195,18 +194,18 @@ To delete the Docker containers and associated data, you can use the following c
 
 ##### CMSSW
 ```
-$ sudo docker rm my_od
-$ sudo rm -rf cms_open_data_work
+sudo docker rm my_od
+sudo rm -rf cms_open_data_work
 ```
 ##### ROOT
 ```
-$ sudo docker rm my_root
-$ sudo rm -rf cms_open_data_root
+sudo docker rm my_root
+sudo rm -rf cms_open_data_root
 ```
 ##### PYTHON
 ```
-$ sudo docker rm my_python
-$ sudo rm -rf cms_open_data_python
+sudo docker rm my_python
+sudo rm -rf cms_open_data_python
 ```
 
 Running these commands will remove the respective docker containers from your system. Additionally, it will delete the corresponding directories (cms_open_data_work, cms_open_data_root, cms_open_data_python) containing the data associated with each container.
