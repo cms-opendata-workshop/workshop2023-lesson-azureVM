@@ -89,11 +89,8 @@ To install CMS software (CMSSW, ROOT, Python tools) for open data analysis, you 
     ```
 
     > After starting VNC, you can access the VNC service in two ways:
-    > 
     > 1. VNC Client: Use a VNC client and connect to localhost:1 to access the graphical interface.
-    > 
     > 2. Web Browser: Access the VNC service in your web browser by navigating to http://localhost:6080/.
-    {: .testimonial}
 
 3. To stop the VNC service and exit the container, run :
 
@@ -129,8 +126,7 @@ To install ROOT and start a container for using it, you can follow the steps out
     start_vnc
     ```
     
-    > VNC service can be accessed via a VNC client via the localhost:1 destination or by accessing the http://localhost:6080/ on your WebBrowser.
-    {: .testimonial}
+    > VNC service can be accessed via a VNC client via the localhost:1 destination or by accessing the [http://localhost:6080/](http://localhost:6080/) on your WebBrowser.
 
 3. To stop VNC and exit:
 
@@ -166,7 +162,6 @@ This will download and install the necessary container for Python tools.
     > Here is an example of the logged token:
     > The Jupyter Notebook is running at: [http://localhost:8888](http://localhost:8888/?token=c8de56fa4deed24899803e93c227592aef6538f93025fe01)
     > Jupyter can be accessed in your web browser by navigating to that link.
-    {: .testimonial}
 
 3. To exit the container, run the following command:
 
@@ -186,13 +181,11 @@ sudo docker start -i my_root
 sudo docker start -i my_python
 ```
 
-By running these commands, you can resume your work in the desired container. The -i flag ensures that you can interact with the container's terminal.
+By running these commands, you can:
+- Resume your work in the desired container. The -i flag ensures that you can interact with the container's terminal.
+- Easily return to the same container and continue your work without any loss of progress or data.
 
-Remember to use the appropriate container name (my_od, my_root, or my_python) based on the container you want to start.
-
-With these commands, you can easily return to the same container and continue your work without any loss of progress or data.
-
-> Note: Make sure that the containers are not already running before using the docker start command.
+> Note: Make sure that the containers are not already running before using the docker start command. Also remember to use the appropriate container name (my_od, my_root, or my_python) based on the container you want to start.
 {: .testimonial}
 
 ## Validation Test
