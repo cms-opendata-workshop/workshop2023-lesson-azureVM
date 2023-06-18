@@ -16,10 +16,18 @@ keypoints:
 ---
 
 ## Installation of Containers
-In this section, we will guide you through the installation process for the CMSSW, ROOT, and Python containers.
+In this section, we will guide you through the installation process for Docker and the CMSSW, ROOT, and Python containers.
 
-Launch a terminal or command prompt on your Ubuntu VM created on Azure and follow the steps below to install the containers.
+> Docker is a container platform that enables packaging applications with their dependencies to facilitate quick and consistent deployment and execution across different environments.
 
+### Given User Permissions to Interact with Docker without Requiring Root Privileges
+Execute the next commands for adding the user to the "docker" group and starting a new shell session with the "docker" group as the primary group, the user will gain the necessary permissions to interact with Docker without requiring root privileges. 
+
+```bash
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
+```
 
 ### Docker Installation
 
@@ -66,11 +74,19 @@ To install Docker on your Ubuntu system, you can follow the steps outlined below
     sudo docker run hello-world
     ```
 
-## CMS Open Data Software Installation
+    >  You should be able to view these lines:
+    
+    >  Hello from Docker!
+    
+    > This message shows that your installation appears to be working correctly.
+    
+### Start Containers from CMS Open Data Container Images
 
-To install CMS software (CMSSW, ROOT, Python tools) for open data analysis, you can follow the steps outlined below. You can also refer to the [Lesson Docker Workshop 2022](https://cms-opendata-workshop.github.io/workshop2022-lesson-docker/03-docker-for-cms-opendata/index.html) for a detailed guide.
+To get access to CMS software (CMSSW, ROOT, Python tools) for open data analysis, you can follow the steps outlined below. 
 
 ### CMSSW
+
+> For detailed information about CMSSW, you can refer to the documentation [CMS Open Data Guide](https://cms-opendata-guide.web.cern.ch/cmssw/cmsswanalyzers/).
 
 1. Download the docker image for CMSSW open data and start a container:
 
@@ -90,7 +106,7 @@ To install CMS software (CMSSW, ROOT, Python tools) for open data analysis, you 
 
     > After starting VNC, you can access the VNC service in two ways:
     > 1. VNC Client: Use a VNC client and connect to localhost:1 to access the graphical interface.
-    > 2. Web Browser: Access the VNC service in your web browser by navigating to http://localhost:6080/.
+    > 2. Web Browser: Access the VNC service in your web browser by navigating to http://localhost:6080/vnc.html. `Password:` **cms.cern**
 
 3. To stop the VNC service and exit the container, run :
 
@@ -99,7 +115,7 @@ To install CMS software (CMSSW, ROOT, Python tools) for open data analysis, you 
     exit
     ```
 
-With CMSSW installed and the container running, you can now proceed with analyzing the open data from CERN using the CMSSW software.
+With CMSSW container running, you can now proceed with analyzing the open data from CERN using the CMSSW software.
 
 > Please note that the commands provided above are a summary of the installation process. 
 > For more detailed instructions and additional configurations, refer to the official documentation.
@@ -126,7 +142,9 @@ To install ROOT and start a container for using it, you can follow the steps out
     start_vnc
     ```
     
-    > VNC service can be accessed via a VNC client via the localhost:1 destination or by accessing the [http://localhost:6080/](http://localhost:6080/) on your WebBrowser.
+    > After starting VNC, you can access the VNC service in two ways:
+    > 1. VNC Client: Use a VNC client and connect to localhost:1 to access the graphical interface.
+    > 2. Web Browser: Access the VNC service in your web browser by navigating to http://localhost:6080/vnc.html. `Password:` **cms.cern**
 
 3. To stop VNC and exit:
 
@@ -137,7 +155,7 @@ To install ROOT and start a container for using it, you can follow the steps out
 
 ### Python Tools 
 
-To install ROOT and start a container for using it, you can follow the steps outlined below.
+To start a container with python tools installed, you can follow the steps outlined below.
 
 1. Download and install Python tools container:
     ```bash 
@@ -160,15 +178,17 @@ To install ROOT and start a container for using it, you can follow the steps out
     > When you start a notebook server with token authentication enabled (default), a token is generated for authentication. 
     > The token information is logged to the terminal, allowing you to copy and paste the URL into your web browser. 
     > Here is an example of the logged token:
-    > The Jupyter Notebook is running at: [http://localhost:8888](http://localhost:8888/?token=c8de56fa4deed24899803e93c227592aef6538f93025fe01)
+    > "The Jupyter Notebook is running at: http://localhost:8888/?token=c8de56fa4deed24899803e93c227592aef6538f93025fe01"
     > Jupyter can be accessed in your web browser by navigating to that link.
 
-3. To exit the container, run the following command:
+3. To stop the Jupyter server, since it takes over the shell, press `CTRL + C` and type **y** when prompted with the message **Shutdown this Jupyter server (y/[n])?**.
+4. To exit the container, run the following command:
 
     ```bash
     exit
     ```
-    
+> Please note that the commands provided for CMSSW, ROOT, and Python Tools containers are a summary of the process. For more detailed instructions and additional configurations, refer to the official documentation [Lesson Docker Workshop 2022](https://cms-opendata-workshop.github.io/workshop2022-lesson-docker/03-docker-for-cms-opendata/index.html).
+
 ## Returning to the Same Container
 
 If you need to return to a previously used container, you can do so using the docker start command. 
@@ -181,17 +201,9 @@ sudo docker start -i my_root
 sudo docker start -i my_python
 ```
 
-By running these commands, you can:
-- Resume your work in the desired container. The -i flag ensures that you can interact with the container's terminal.
-- Easily return to the same container and continue your work without any loss of progress or data.
+By running these commands, you can resume your work in the desired container. The -i flag ensures that you can interact with the container's terminal. Remember to use the appropriate container name (my_od, my_root, or my_python) based on the container you want to start. With these commands, you can easily return to the same container and continue your work without any loss of progress or data.
 
-> Note: Make sure that the containers are not already running before using the docker start command. Also remember to use the appropriate container name (my_od, my_root, or my_python) based on the container you want to start.
-{: .testimonial}
-
-## Validation Test
-To validate the installation and ensure that everything is working fine, you can perform a validation test. Follow the steps of this [test page](https://cms-opendata-workshop.github.io/workshop2022-lesson-docker/04-validation/index.html).
-
-> Note: This page provides instructions on how to test the functionality of CMSSW, ROOT, and Python within the docker containers.
+> Note: Make sure that the containers are not already running before using the docker start command.
 {: .testimonial}
   
 
