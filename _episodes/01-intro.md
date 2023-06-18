@@ -15,7 +15,7 @@ keypoints:
 ---
 
 ## Overview
-In this hands-on exercise, you will learn how to use Microsoft Azure's cloud platform to create a virtual machine (VM) and harness the capabilities of containerization.
+In this hands-on exercise, you will learn how to use Microsoft Azure's cloud platform to create a virtual machine (VM) and harness the capabilities of containerization. 
 
 You will install three essential container images on the VM:
 
@@ -33,30 +33,32 @@ Let's dive in and explore the process of creating the VM, installing the contain
 
 To begin, let's take advantage of Microsoft Azure's Azure for Students offering, which provides free access to the cloud. You can access the Azure for Students page by visiting [Azure Portal](https://azure.microsoft.com/en-us/free/students/) and signing in with your `academic account email`.
 
-Upon accessing the link, click on the `Start Free` button. If this is your first time accessing Azure, you may be required to provide some personal information, but rest assured that credit card details should not be requested. Upon successful registration, you will be granted **100 credits** to get started.
+Upon accessing the link, click on the `Start Free` button. If this is your first time accessing Azure, you may be required to provide some personal information, but rest assured that credit card details should not be requested. Upon successful registration, you will be granted **100 USD credit** to get started.
 
-Now, let's proceed with creating your VM. On the initial page, locate the **Ubuntu Server 20.04 LTS** image from the Azure Marketplace service. Select the `Create` option to proceed.
+> If you wish to use Azure with a non-academic account, you will receive a 200 USD credit to use within the first 30 days after signing up. However, it is important to note that you may be required to provide credit card details during the sign-up process. For more detailed information, you can access the documentation or resources available from [Azure free account FAQ ](https://azure.microsoft.com/en-us/free/free-account-faq/#F1)
 
-In the **Basic Data** tab, fill in the following mandatory details:
+Now, let's proceed with creating your VM. 
+1. Click on `Deploy a virtual machine` and follow `Create a Linux virtual machine`.
+2. Locate the **Ubuntu Server 20.04 LTS** image from the Azure Marketplace service. Select the `Create` option to proceed.
+3. In the **Basic Data** tab, fill in the following mandatory details:
+  - **Subscription:** Depends on your account `Azure for Students` or `Azure subscription`
+  - **Resource group:** `(New) Resource Group`
+  - **Virtual machine name:** `Choose any name you prefer`
+  - **Region:** `Choose your preferred location`
+  - **Image:** `Ubuntu Server 20.04 LTS - x64 Gen2`
+  - **Size:** `Standard_B2ms - 2 vCPUs, 8 GiB memory`
+  - **Type of authentication:** `Public key SSH`
+  - **Username:** `azureuser`
+  - **Key pairs name:** `Ubuntu_key`
+  - **Public inbound ports:** `Allow selected ports`
+  - **Select inbound ports:** `SSH (22)`
+  
+  `You can leave the remaining fields with their default values, as well as the other tabs.`
 
-- **Subscription:** `Azure for Students`
-- **Resource group:** `(New) Resource Group`
-- **Virtual machine name:** `Choose any name you prefer`
-- **Region:** `Select the region nearest to your geographical location`
-- **Image:** `Ubuntu Server 20.04 LTS - x64 Gen2`
-- **Size:** `Standard_B2ms - 2 vCPUs, 8 GiB memory`
-- **Type of authentication:** `Public key SSH`
-- **Username:** `azureuser`
-- **Key pairs name:** `Ubuntu_key`
-- **Public inbound ports:** `Allow selected ports`
-- **Select inbound ports:** `SSH (22)`
-
-You can leave the remaining fields with their default values, as well as the other tabs.
-
-Once all the necessary information is provided, click on `Review + create` at the bottom of the page. You will be redirected to a summary of the selected options and the associated price (which should be within your student credits, approximately 0.0832 USD/hr). After reviewing the details, click on `Create` to initiate the deployment process.
-
-A pop-up message will appear, prompting you to generate a new key pair. Select the `Download private key and create resource` option. This action will initiate the download of a file named **ubuntu_key.pem**.
-
-Please note that the deployment process may take some time. Once the deployment is complete, navigate to the resource. You will find information about your VM, including the public IP address. Make sure that your VM is in the **Started** state, and the `Start` option at the bottom left side of the page should be disabled.
+4. Once all the necessary information is provided, click on `Review + create` at the bottom of the page. You will be redirected to a summary of the selected options and the associated price (which should be within your student credits, approximately 0.0832 USD/hr).
+5. After reviewing the details, click on `Create` to initiate the deployment process.
+6. A pop-up message will appear, prompting you to generate a new key pair. Select the `Download private key and create resource` option. This action will initiate the download of a file named `<VMName>_key.pem`.
+  > Please note that the deployment process may take some time.
+7. Once the deployment is complete, Click on `Go to resource`. You will find information about your VM, including the public IP address. Make sure that your VM is in the **Running** status, and the `Start` icon (triangle) at the top left side of the page should be disabled.
 
 ##### Congratulations! You have successfully created your VM.
