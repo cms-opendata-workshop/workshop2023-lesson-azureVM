@@ -19,6 +19,7 @@ You can use any SSH client to connect to your VM. Here, we provide the steps usi
 
 ### For Linux
 1. Open a terminal on your Linux machine and navigate to the path of the .pem file you downloaded from Azure before.
+
 2. Set the correct permissions for the pem file by running the following command:
 
     ```
@@ -38,6 +39,7 @@ Using WSL, users can seamlessly operate within their Ubuntu shell and effortless
 
 #### Using Command Prompt
 1. Open Command Prompt.
+
 2. Run the following command:
   ```
   ssh -i C:\Users\<WindowsUserName>\Downloads\<VMName>_key.pem -L 5901:localhost:5901 -L 6080:localhost:6080 -L 8888:localhost:8888 azureuser@<VM_IP>
@@ -48,6 +50,7 @@ Using WSL, users can seamlessly operate within their Ubuntu shell and effortless
 1. Download the latest version of PuTTY from the official website: [PuTTY](https://www.putty.org/)
 
 2. Open `PuTTYgen` and select the `Conversions` option. 
+
 3. Then, choose `Import key` to locate and select the `.pem` file you downloaded previously from Azure. 
 
   > Note: Do not select `Generate`.
