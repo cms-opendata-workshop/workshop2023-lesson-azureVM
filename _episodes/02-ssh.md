@@ -51,6 +51,7 @@ Using WSL, users can seamlessly operate within their Ubuntu shell and effortless
 3. Then, choose `Import key` to locate and select the `.pem` file you downloaded previously from Azure. 
 
   > Note: Do not select `Generate`.
+  {: .testimonial}
 
 4. Go to the `File` menu, select `Save private key`, and confirm by clicking `Yes` in the pop-up window.
 
