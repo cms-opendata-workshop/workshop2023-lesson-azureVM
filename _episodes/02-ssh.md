@@ -22,27 +22,35 @@ You can use any SSH client to connect to your VM. Here, we provide the steps usi
 2. Set the correct permissions for the pem file by running the following command:
 
     ```
-    chmod 600 ubuntu_key.pem
+    chmod 600 <VMName>_key.pem
     ````
 
 3. Execute the following command:
 
     ```
-    ssh -i ubuntu_key.pem -L 5901:localhost:5901 -L 6080:localhost:6080 -L 8888:localhost:8888 azureuser@<AZURE_VM_IP>
+    ssh -i <VMName>_key.pem -L 5901:localhost:5901 -L 6080:localhost:6080 -L 8888:localhost:8888 azureuser@<AZURE_VM_IP>
     ```
 
 ### For Windows
 
-#### Installation of PuTTY
+#### Using Windows Subsystem for Linux (WSL)
+Using WSL, users can seamlessly operate within their Ubuntu shell and effortlessly follow the Linux instructions.
+
+#### Using Command Prompt
+1. Open Command Prompt.
+2. Run the following command:
+  ```
+  ssh -i C:\Users\<WindowsUserName>\Downloads\<VMName>_key.pem -L 5901:localhost:5901 -L 6080:localhost:6080 -L 8888:localhost:8888 azureuser@<VM_IP>
+  ```
+
+#### Using the PuTTY application
 
 1. Download the latest version of PuTTY from the official website: [PuTTY](https://www.putty.org/)
 
 2. Open `PuTTYgen` and select the `Conversions` option. 
-
 3. Then, choose `Import key` to locate and select the `.pem` file you downloaded previously from Azure. 
 
-    > Do not select `Generate`!
-    {: .testimonial}
+  > Note: Do not select `Generate`.
 
 4. Go to the `File` menu, select `Save private key`, and confirm by clicking `Yes` in the pop-up window.
 
@@ -64,7 +72,6 @@ You can use any SSH client to connect to your VM. Here, we provide the steps usi
     - To add the VNC tunnel, set **Source Port** to `5901`, **Destination** to `localhost:5901`, and click the **Add** button.
     - To add the WebVNC tunnel, set **Source Port** to `6080`, **Destination** to `localhost:6080`, and click the **Add** button.
     - To add the Jupyter tunnel, set **Source Port** to `8888`, **Destination** to `localhost:8888`, and click the **Add** button.
-
 
     > Note: Tunnels will be required later. They will allow you to easily connect to VNC or Jupyter when the corresponding container is launched.
 
