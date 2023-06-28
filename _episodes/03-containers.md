@@ -20,15 +20,6 @@ In this section, we will guide you through the installation process for Docker a
 
 > Docker is a container platform that enables packaging applications with their dependencies to facilitate quick and consistent deployment and execution across different environments.
 
-### Given User Permissions to Interact with Docker without Requiring Root Privileges
-Execute the next commands for adding the user to the "docker" group and starting a new shell session with the "docker" group as the primary group, the user will gain the necessary permissions to interact with Docker without requiring root privileges. 
-
-```bash
-sudo groupadd docker
-sudo usermod -aG docker $USER
-newgrp docker
-```
-
 ### Docker Installation
 
 To install Docker on your Ubuntu system, you can follow the steps outlined below. You can also refer to the [Official Docker Documentation](https://docs.docker.com/engine/install/ubuntu/#set-up-the-repository) for a detailed guide.
@@ -67,11 +58,18 @@ To install Docker on your Ubuntu system, you can follow the steps outlined below
     ```bash
     sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
     ```
+6. Execute the next commands for adding the user to the "docker" group and starting a new shell session with the "docker" group as the primary group, the user will gain the necessary permissions to interact with Docker without requiring root privileges. 
+
+    ```bash
+    sudo groupadd docker
+    sudo usermod -aG docker $USER
+    newgrp docker
+    ```
 
 6. Verify that the Docker Engine installation is successful by running the hello-world image:
 
     ```bash
-    sudo docker run hello-world
+    docker run hello-world
     ```
 
     >  You should be able to view these lines:
@@ -92,8 +90,8 @@ To get access to CMS software (CMSSW, ROOT, Python tools) for open data analysis
 
     ```bash
     cd
-    sudo mkdir cms_open_data_work
-    sudo docker run -it --name my_od -P -p 5901:5901 -p 6080:6080 -v \
+    mkdir cms_open_data_work
+    docker run -it --name my_od -P -p 5901:5901 -p 6080:6080 -v \
     ${HOME}/cms_open_data_work:/code cmsopendata/cmssw_7_6_7-slc6_amd64_gcc493 \
     /bin/bash
     ```
@@ -123,14 +121,14 @@ With CMSSW container running, you can now proceed with analyzing the open data f
 
 ### ROOT 
 
-To install ROOT and start a container for using it, you can follow the steps outlined below.
+To start a container with ROOT installed, you can follow the steps outlined below.
 
 1. Download the docker images for ROOT and start the container:
 
     ```bash
     cd
-    sudo mkdir cms_open_data_root
-    sudo docker run -it --name my_root --net=host --env="DISPLAY" \
+    mkdir cms_open_data_root
+    docker run -it --name my_root --net=host --env="DISPLAY" \
     -v $HOME/.Xauthority:/home/cmsusr/.Xauthority:rw \
     -v ${HOME}/cms_open_data_root:/code \
     gitlab-registry.cern.ch/cms-cloud/root-vnc:latest
@@ -155,13 +153,13 @@ To install ROOT and start a container for using it, you can follow the steps out
 
 ### Python Tools 
 
-To start a container with python tools installed, you can follow the steps outlined below.
+To start a container with Python tools installed, you can follow the steps outlined below.
 
 1. Download and install Python tools container:
     ```bash 
     cd
-    sudo mkdir cms_open_data_python
-    sudo docker run -it --name my_python -P -p 8888:8888 --net=host \
+    mkdir cms_open_data_python
+    docker run -it --name my_python -P -p 8888:8888 --net=host \
     --env="DISPLAY" -v $HOME/.Xauthority:/home/cmsusr/.Xauthority:rw \
     -v ${HOME}/cms_open_data_python:/code \
     gitlab-registry.cern.ch/cms-cloud/python-vnc:latest
@@ -196,9 +194,9 @@ If you need to return to a previously used container, you can do so using the do
 Here are the commands to start the respective containers:
 
 ```bash
-sudo docker start -i my_od
-sudo docker start -i my_root
-sudo docker start -i my_python
+docker start -i my_od
+docker start -i my_root
+docker start -i my_python
 ```
 
 By running these commands, you can resume your work in the desired container. The -i flag ensures that you can interact with the container's terminal. Remember to use the appropriate container name (my_od, my_root, or my_python) based on the container you want to start. With these commands, you can easily return to the same container and continue your work without any loss of progress or data.
