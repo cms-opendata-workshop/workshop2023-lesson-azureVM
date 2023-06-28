@@ -6,7 +6,7 @@ questions:
 - "How do I delete containers and associated data from my Azure VM?"
 
 objectives:
-- "Delete containers created created on Azure"
+- "Delete containers created on Azure"
 - "Perform a validation test to ensure that the installation of CMSSW, ROOT, and Python containers is successful."
 
 keypoints:
@@ -18,18 +18,18 @@ To delete the Docker containers and associated data, you can use the following c
 
 ### CMSSW
 ```
-sudo docker rm my_od
-sudo rm -rf cms_open_data_work
+docker rm my_od
+rm -rf cms_open_data_work
 ```
 ### ROOT
 ```
-sudo docker rm my_root
-sudo rm -rf cms_open_data_root
+docker rm my_root
+rm -rf cms_open_data_root
 ```
 ### PYTHON
 ```
-sudo docker rm my_python
-sudo rm -rf cms_open_data_python
+docker rm my_python
+rm -rf cms_open_data_python
 ```
 
 Running these commands will remove the respective docker containers from your system. Additionally, it will delete the corresponding directories (cms_open_data_work, cms_open_data_root, cms_open_data_python) containing the data associated with each container.
@@ -37,12 +37,12 @@ Running these commands will remove the respective docker containers from your sy
 > Please note that deleting the containers will permanently remove the data stored inside them. Make sure to back up any important data before executing these commands.
 
 ## Validation Test
-To validate the installation and ensure that everything is working fine, you can perform a validation test. Follow the steps of this [test page](https://cms-opendata-workshop.github.io/workshop2022-lesson-docker/04-validation/index.html).
+To validate the installation and ensure that everything is working fine, you can perform a validation test. Follow the steps of this [test page](https://cms-opendata-workshop.github.io/workshop2023-lesson-docker/04-validation/index.html).
 
   > Note: This page provides instructions on how to test the functionality of CMSSW, ROOT, and Python within the docker containers.
 
    
-## Stoping a Virtual Machine on Microsoft Azure
+## Stopping a Virtual Machine on Microsoft Azure
 If you intend to reuse the created VM in the future, it is recommended to stop the VM. Stopping a VM in Azure may be advisable to prevent the consumption of your free credit or to avoid incurring additional costs.
 
 To stop a virtual machine on Microsoft Azure, follow these steps:
