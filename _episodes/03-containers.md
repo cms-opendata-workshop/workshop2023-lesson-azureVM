@@ -80,13 +80,13 @@ To install Docker on your Ubuntu system, you can follow the steps outlined below
     
 ### Start Containers from CMS Open Data Container Images
 
-To get access to CMS software (CMSSW, ROOT, Python tools) for open data analysis, you can follow the steps outlined below. 
+To get access to CMS software (CMSSW) and ROOT Python tools for open data analysis, you can follow the steps outlined below. 
 
 ### CMSSW
 
 > For detailed information about CMSSW, you can refer to the documentation [CMS Open Data Guide](https://cms-opendata-guide.web.cern.ch/cmssw/cmsswanalyzers/).
 
-1. Download the docker image for CMSSW open data and start a container:
+1. Download the docker image for CMS open data and start a container:
 
     ```bash
     cd
@@ -113,11 +113,7 @@ To get access to CMS software (CMSSW, ROOT, Python tools) for open data analysis
     exit
     ```
 
-With CMSSW container running, you can now proceed with analyzing the open data from CERN using the CMSSW software.
-
-> Please note that the commands provided above are a summary of the installation process. 
-> For more detailed instructions and additional configurations, refer to the official documentation.
-{: .testimonial}
+With the CMSSW container running, you can now proceed with analyzing the open data from CMS using the CMSSW software.
 
 ### ROOT 
 
@@ -185,7 +181,7 @@ To start a container with Python tools installed, you can follow the steps outli
     ```bash
     exit
     ```
-> Please note that the commands provided for CMSSW, ROOT, and Python Tools containers are a summary of the process. For more detailed instructions and additional configurations, refer to the official documentation [Lesson Docker Workshop 2022](https://cms-opendata-workshop.github.io/workshop2022-lesson-docker/03-docker-for-cms-opendata/index.html).
+> Please note that the commands provided for CMSSW, ROOT, and Python Tools containers are a summary of the process. For more detailed instructions and additional configurations, refer to the [Docker pre-exercise](https://cms-opendata-workshop.github.io/workshop2023-lesson-docker/03-docker-for-cms-opendata/index.html).
 
 ## Returning to the Same Container
 
