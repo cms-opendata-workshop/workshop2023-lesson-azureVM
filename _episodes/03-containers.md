@@ -185,9 +185,7 @@ To start a container with Python tools installed, you can follow the steps outli
 
 ## Returning to the Same Container
 
-If you need to return to a previously used container, you can do so using the docker start command. 
-
-Here are the commands to start the respective containers:
+If you need to return to a previously used container, you can do so using the docker start command:
 
 ```bash
 docker start -i my_od
