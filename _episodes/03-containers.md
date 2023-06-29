@@ -124,10 +124,7 @@ To start a container with ROOT installed, you can follow the steps outlined belo
     ```bash
     cd
     mkdir cms_open_data_root
-    docker run -it --name my_root --net=host --env="DISPLAY" \
-    -v $HOME/.Xauthority:/home/cmsusr/.Xauthority:rw \
-    -v ${HOME}/cms_open_data_root:/code \
-    gitlab-registry.cern.ch/cms-cloud/root-vnc:latest
+    docker run -it --name my_root -P -p 5901:5901 -p 6080:6080 -v ${HOME}/cms_open_data_root:/code gitlab-registry.cern.ch/cms-cloud/root-vnc:latest
     ```
 
 2. To start VNC inside the container:
@@ -155,10 +152,7 @@ To start a container with Python tools installed, you can follow the steps outli
     ```bash 
     cd
     mkdir cms_open_data_python
-    docker run -it --name my_python -P -p 8888:8888 --net=host \
-    --env="DISPLAY" -v $HOME/.Xauthority:/home/cmsusr/.Xauthority:rw \
-    -v ${HOME}/cms_open_data_python:/code \
-    gitlab-registry.cern.ch/cms-cloud/python-vnc:latest
+    docker run -it --name my_python -P -p 5901:5901 -p 6080:6080 -p 8888:8888 -v ${HOME}/cms_open_data_python:/code gitlab-registry.cern.ch/cms-cloud/python-vnc:latest
     ```
 
     This will download and install the necessary container for Python tools.
